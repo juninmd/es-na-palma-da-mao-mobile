@@ -22,11 +22,6 @@ var path = require( 'path' );
 // no need to configure below
 var rootdir = path.resolve(__dirname ,'../../'); // process.argv[ 2 ];
 
-console.log( 'argvv', process.argv );
-console.log('__dirname', __dirname)
-console.log('rootdir', rootdir)
-
-
 filestocopy.forEach( function ( obj ) {
     Object.keys( obj ).forEach( function ( key ) {
         var val = obj[ key ];
