@@ -36,7 +36,7 @@
 				</md-card-title-text>
 				<md-card-title-media>
 					<div class="md-media-md card-media">
-						<img alt="" ng-src="{{news.image}}" onload="this.style.display='inline'" onerror="this.style.display='none'" />
+						<img alt="" ng-if="news.image" ng-src="{{news.image}}" onload="this.style.display='inline'" onerror="this.style.display='none'" />
 					</div>
 				</md-card-title-media>
 				<md-divider></md-divider>
