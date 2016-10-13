@@ -28,7 +28,7 @@
 				<md-divider></md-divider>
 			</md-list-item>
 		</md-list>
-		<message text="Nenhuma multa encontrada para a placa" ng-if="vm.ticketsNotFounded">
+		<message text="Nenhuma multa para a placa" icon="fa fa-check-circle-o" ng-if="vm.ticketsNotFounded">
 			<highlight>{{vm.vehicle.plate}}</highlight>
 		</message>
 		<error-message error="uiState.error">
