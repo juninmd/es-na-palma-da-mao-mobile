@@ -72,3 +72,9 @@
 #state-driver-license-status .no-tickets .message-wrapper {
     height: calc( 100% - 72px );
 }
+
+
+#state-driver-license-status .scroll {
+    height: 100%;
+    position: static;
+}

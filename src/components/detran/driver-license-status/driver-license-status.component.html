@@ -52,7 +52,7 @@
 				</md-card-header-text>
 			</md-card-header>
 		</md-card>
-		<md-list ng-if="vm.tickets && vm.hasTickets" >
+		<md-list ng-if="vm.tickets && vm.hasTickets">
 			<md-subheader class="md-no-sticky">
 				{{::vm.tickets.length}} multas encontradas
 			</md-subheader>
@@ -73,7 +73,8 @@
 				<md-divider></md-divider>
 			</md-list-item>
 		</md-list>
-		<message text="Nenhuma multa encontrada para a CNH" ng-if="vm.tickets && !vm.hasTickets" class="no-tickets"></message>
+		<message text="Nenhuma multa para a CNH" icon="fa fa-check-circle-o" ng-if="vm.tickets && !vm.hasTickets" class="no-tickets">
+		</message>
 
 		<message text="Verifique se os dados da CNH estão corretos" ng-if="!vm.driverLicenseStorage.isDriverLicenseValidNumber"></message>
 
