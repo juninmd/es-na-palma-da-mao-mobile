@@ -12,7 +12,8 @@ const directive = () => {
         replace: false,
         scope: true,
         bindToController: {
-            text: '@'
+            text: '@',
+            icon: '@'
         }
     };
 };

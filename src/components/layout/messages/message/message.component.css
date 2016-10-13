@@ -13,4 +13,8 @@
     text-align: center;
 }
 
-.message-wrapper .message img { margin: 15px 0;}
+.message-wrapper i { 
+    max-height: 130px;
+    font-size: 10em;
+    color: #d0d0d0;
+}
