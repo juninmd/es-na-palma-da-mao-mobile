@@ -3,6 +3,7 @@
 [![Build Status][travis-image]][travis-url] 
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Coverage percentage][coveralls-image]][coveralls-url]
+[![Gitter][gitter-image]][gitter-url]
 
 > O **ES NA PALMA DA MÃO** é um programa do **Governo do Estado do Espírito Santo** que reúne **iniciativas e serviços do Governo em plataforma móvel (aplicativo) e web, com unidade de experiência do cidadão**. Por meio do **ES NA PALMA DA MÃO**, diversos serviços governamentais podem ser acessados através da web e dispositivos móveis (sistemas operacionais iOS e Android) utilizando uma interface comum.
 
@@ -203,3 +204,5 @@ Inicia um *watcher* que compila a aplicação sempre que o código muda.
 [daviddm-url]: https://david-dm.org/prodest/es-na-palma-da-mao-mobile?type=dev
 [coveralls-image]: http://coveralls.io/repos/github/prodest/es-na-palma-da-mao-mobile/badge.svg?branch=develop
 [coveralls-url]: https://coveralls.io/github/prodest/es-na-palma-da-mao-mobile?branch=develop
+[gitter-image]: https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000
+[gitter-url]: https://gitter.im/es-na-palma-da-mao/Lobby#
