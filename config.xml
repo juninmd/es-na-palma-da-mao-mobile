@@ -26,7 +26,8 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility"/>
     <preference name="AlternateContentSrc" value="index.html"/>
     <preference name="SplashScreen" value="screen"/>
-    <preference name="SplashScreenDelay" value="3000"/>
+    <preference name="SplashScreenDelay" value="0"/>
+    <preference name="SplashShowOnlyFirstTime" value="false" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar"/>
     </feature>
