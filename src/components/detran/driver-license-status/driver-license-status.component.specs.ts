@@ -185,7 +185,7 @@ describe( 'Detran/driver-license-status', () => {
 
             it( 'should not call getDriverTickets() if invalid license numbers', () => {
                 driverLicenseStorage.isDriverLicenseValidNumber = false;
-                
+
                 expect( getDriverTicketsController.calledOnce ).to.be.false;
             });
         });
