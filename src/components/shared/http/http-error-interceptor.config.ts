@@ -15,11 +15,7 @@ let httpErrorInterceptorConfig = $httpProvider => {
                     status: response.status,
                     error: 'Erro inesperado',
                     message: 'Erro inesperado'
-                }, response.data || {} );
-
-                // normaliza nome da propriedade
-                error.message = error[ 'error' ];
-                delete error[ 'error' ];
+                }, response.data || {});
 
                 httpErrorSnifferService.error = error;
 
