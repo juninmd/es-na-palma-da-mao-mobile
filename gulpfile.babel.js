@@ -58,6 +58,7 @@ let argv = yargs.alias( 't', 'transpile' )
                 .alias( 'h', 'htmlmin' )
                 .alias( 'j', 'jsmin' )
                 .alias( 'b', 'bundle' )
+                .alias( 'p', 'password' )
                 .default( 'jsmin', false )
                 .default( 'bundle', false )
                 .default( 'htmlmin', false )
@@ -65,7 +66,8 @@ let argv = yargs.alias( 't', 'transpile' )
                 .default( 'emulate', false )
                 .default( 'run', false )
                 .default( 'serve', false )
-                .default( 'transpile', false ).argv;
+                .default( 'transpile', false )
+                .default( 'password', '' ).argv;
 
 
 ////////////////////////////////////////// HELPERS /////////////////////////////////////////////////
@@ -695,7 +697,11 @@ gulp.task( 'create-release', 'Cria e publica uma nova release no Github e faz up
 } );
 
 gulp.task( 'tree-shaking', false, shell.task( [
-    'find ./www/jspm_packages -type f -not -regex ".*\\.css$" -not -regex ".*\\.woff$" -not -regex ".*\\.woff2$" -not -regex ".*\\/system.js$" -not -regex ".*\\/system-polyfills.js$" -not -regex ".*\\/system-csp-production.js$" -delete -or -type f -regex ".*/angular.*/.*" -delete'    
+    'find ./www/jspm_packages -type f -not -regex ".*\\.css$" -not -regex ".*\\.woff$" -not -regex ".*\\.woff2$" -not -regex ".*\\/system.js$" -not -regex ".*\\/system-polyfills.js$" -not -regex ".*\\/system-csp-production.js$" -delete -or -type f -regex ".*/angular.*/.*" -delete'
+] ) );
+
+gulp.task( 'create-apk', false, shell.task( [
+    'cordova build android --release -- --keystore=espm.keystore --storePassword=' + argv.password + ' --alias=espm --password=' + argv.password
 ] ) );
 
 gulp.task( 'compile', 'Compila a aplicação e copia o resultado para a pasta de distribuição.', ( cb ) => {
