@@ -36,6 +36,12 @@
     font-size: 1.4em;
 }
 
+#btn-clear {
+    right: 25px;
+    left: auto;
+    top: 10px;
+}
+
 .state-ceturb-subheader md-input-container.md-icon-right {
     padding: 5px;
     margin: 0px;

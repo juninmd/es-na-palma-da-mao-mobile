@@ -3,7 +3,8 @@
 	<div class="bar bar-subheader state-ceturb-subheader">
 		<md-input-container md-no-float class="md-block md-whiteframe-2dp">
 			<input class="input-search" ng-model="vm.filter" ng-model-options="{ debounce: 500 }" ng-change="vm.filterLines(vm.filter)" type="text" placeholder="Pesquisar Linhas de Ônibus" input-return>
-			<md-icon style="display:inline-block;"><i class="fa fa-search" aria-hidden="true"></i></md-icon>
+			<md-icon id="btn-clear" ng-if="vm.filter" ng-click="vm.clearFilter()"><i class="ion-android-close" aria-hidden="true"></i></md-icon>
+			<md-icon id="btn-search"><i class="fa fa-search" aria-hidden="true"></i></md-icon>
 		</md-input-container>
 	</div>
 
@@ -31,7 +32,7 @@
 			<remark ng-if="!uiState.error.handled">Não foi possível consultar linhas de ônibus</remark>
 		</error-message>
 		
-		<message ng-if="!uiState.error && (vm.filteredLines && !vm.filteredLines.length)" text="Nenhum resultado encontrado para">
+		<message ng-if="!uiState.error && (vm.filteredLines && !vm.filteredLines.length)" text="Nenhum resultado encontrado para" icon="fa fa-times">
 			<highlight>"{{vm.filter}}"</highlight>
 			<remark>Tente mudar o filtro da consulta</remark>
 		</message>

@@ -103,6 +103,17 @@ export class BusLinesController {
     /**
      * 
      * 
+     * 
+     * @memberOf BusLinesController
+     */
+    public clearFilter() {
+        this.filter = '';
+        this.filteredLines = this.lines;
+    }
+
+    /**
+     * 
+     * 
      * @private
      * @type {*}
      */

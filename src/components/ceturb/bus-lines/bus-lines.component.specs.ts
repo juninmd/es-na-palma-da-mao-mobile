@@ -189,6 +189,37 @@ describe( 'Ceturb/bus-lines', () => {
                 expect( controller.filteredLines ).to.have.lengthOf( controller.lines.length );
             });
         });
+
+        describe( 'clearFilter()', () => {
+
+            let lines: BusLine[];
+
+            beforeEach(() => {
+                lines = <BusLine[]>[
+                    { number: '500', name: 'Itacibá' },
+                    { number: '501', name: 'Canto' },
+                    { number: '502', name: 'Serra' }
+                ];
+
+                controller.filter = '501';
+                controller.lines = lines;
+                controller.filteredLines = [ controller.lines[ 1 ] ];
+            });
+
+            it( 'should reset filtered lines list to all lines', () => {
+
+                controller.clearFilter();
+
+                expect( controller.filteredLines ).to.be.deep.equal( controller.lines );
+            });
+
+            it( 'should clear filter', () => {
+
+                controller.clearFilter();
+
+                expect( controller.filter ).to.be.equal( '' );
+            });
+        });
     });
 
     describe( 'Component', () => {
