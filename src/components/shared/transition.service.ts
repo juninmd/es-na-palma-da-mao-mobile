@@ -11,25 +11,20 @@ export class TransitionService {
         '$mdSidenav'
     ];
 
+    private sideMenuId = 'left';
+    private hasSideMenu: boolean = false;
+
     constructor( private $rootScope: IScope,
         private $state: angular.ui.IStateService,
         private $timeout: ITimeoutService,
         private $ionicHistory: ionic.navigation.IonicHistoryService,
         private $ionicNativeTransitions,
         private $mdSidenav: angular.material.ISidenavService ) {
-    }
 
-    /**
-       *  Fecha a barra de navegação lateral
-       *  It will use with event on-swipe-left="closeSideNav()" on-drag-left="closeSideNav()"
-       *  When user swipe or drag md-sidenav to left side
-       *
-       *  @returns {void}
-       */
-    private closeSideNav(): void {
-        this.$mdSidenav( 'left' ).close();
+        this.$mdSidenav( this.sideMenuId, true ).then(() => {
+            this.hasSideMenu = true;
+        });
     }
-
 
     /**
      * 
@@ -70,8 +65,18 @@ export class TransitionService {
      */
     public changeState( stateName: string, routeParameters: any = {}, options: any = {}, isRoot: boolean = false, isTabs: boolean = false, reload: boolean = false ): void {
         // this.$timeout(() => {
-        this.closeSideNav();
 
+        if ( this.hasSideMenu ) {
+            this.$mdSidenav( this.sideMenuId ).close();
+            this.executeTransition( stateName, routeParameters, options, isRoot, isTabs, reload );
+        } else {
+            this.executeTransition( stateName, routeParameters, options, isRoot, isTabs, reload );
+        }
+
+        // }, ( this.$rootScope.isAndroid === false ? 300 : 0 ) );
+    }
+
+    private executeTransition( stateName: string, routeParameters: any = {}, options: any = {}, isRoot: boolean = false, isTabs: boolean = false, reload: boolean = false ) {
         let defaultOptions: any = { type: 'fade' };
         angular.extend( defaultOptions, options );
 
@@ -97,8 +102,6 @@ export class TransitionService {
                 this.$state.go( stateName, routeParameters );
             }
         }
-
-        // }, ( this.$rootScope.isAndroid === false ? 300 : 0 ) );
     }
 
     /**
