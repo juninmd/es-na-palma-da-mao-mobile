@@ -22,9 +22,13 @@
     padding: 10px 0;
 }
 
-
+#btn-clear {
+    right: 30px;
+    left: auto;
+    top: 10px;
+}
 #btn-scanbarcode {
-    right: 38px;
+    right: 5px;
     left: auto;
     top: 10px;
 }
@@ -34,8 +38,8 @@
 }
 
 .state-sep-subheader {
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
     background: none;
     background-color: rgb(250,250,250);
 }
