@@ -38,6 +38,12 @@
 
 #state-news-list md-list-item .md-list-item-inner md-card-title-text {
 	padding: 8px 8px 0 0;
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 110px;
+    align-self: center;
 }
 
 /* iOS specific */
