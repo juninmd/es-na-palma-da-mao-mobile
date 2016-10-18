@@ -25,7 +25,7 @@
 					{{ ::vm.news.date | date: 'dd/MM/yyyy' }}
 				</span>
 				<br>
-				<small ng-if="!moment(vm.news.date).isSame(vm.news.lastModified, 'day')" class="last-updated">Atualizada em: {{ ::vm.news.lastModified | date: 'dd/MM/yyyy' }}
+				<small ng-if="vm.news.lastModified && !moment(vm.news.date).isSame(vm.news.lastModified, 'day')" class="last-updated">Atualizada em: {{ ::vm.news.lastModified | date: 'dd/MM/yyyy' }}
 				</small>
 			</div>
 			<h3>{{::vm.news.title}}</h3>
