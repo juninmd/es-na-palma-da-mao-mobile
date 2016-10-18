@@ -14,10 +14,10 @@
 			</md-subheader>
 			<md-list-item class="md-3-line ticket" ng-repeat="ticket in vm.tickets track by $index">
 				<div class="md-list-item-text md-padding" layout="row">
-					<div flex="20">
+					<div flex="20" flex-gt-xs="15">
 						<div class="avatar-points bg-{{::vm.getTicketLevelColor( ticket.classification ) }}">{{::ticket.points}}</div>
 					</div>
-					<div flex="80">
+					<div flex="80" flex-gt-xs="85">
 						<h4 flex>{{::ticket.classification | capitalize}} - {{::ticket.date | calendar}}</h4>
 						<p>
 							{{::ticket.place | capitalize}}, {{::ticket.district | capitalize}}
