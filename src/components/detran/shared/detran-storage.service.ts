@@ -109,19 +109,6 @@ export class DetranStorage implements DriverLicenseStorage, VehicleStorage {
         };
     }
 
-    /**
-     * 
-     * 
-     * @readonly
-     * @type {boolean}
-     * @memberOf DetranStorage
-     */
-    public get isDriverLicenseValidNumber(): boolean {
-        if ( isNaN( Number( this.driverLicense.registerNumber ) ) || isNaN( Number( this.driverLicense.ballot ) ) ) {
-            return false;
-        }
-        return true;
-    }
 
     /**
      * 

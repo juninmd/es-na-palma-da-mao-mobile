@@ -75,9 +75,6 @@
 		</md-list>
 		<message text="Nenhuma multa para a CNH" icon="fa fa-check-circle-o" ng-if="vm.tickets && !vm.hasTickets" class="no-tickets">
 		</message>
-
-		<message text="Verifique se os dados da CNH estão corretos" ng-if="!vm.driverLicenseStorage.isDriverLicenseValidNumber"></message>
-
 		<error-message error="uiState.error">
 			<remark ng-if="uiState.error.status === 404">Verifique se os dados da CNH estão corretos</remark>
 		</error-message>
