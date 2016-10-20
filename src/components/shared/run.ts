@@ -104,8 +104,6 @@ function run( $rootScope: any,
 
 
     $ionicPlatform.ready(() => {
-        ionic.Platform.isFullScreen = true;
-
         Keyboard.hideKeyboardAccessoryBar( true );
         Keyboard.disableScroll( true );
 
