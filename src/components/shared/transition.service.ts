@@ -34,9 +34,19 @@ export class TransitionService {
      * @memberOf TransitionService
      */
     public changeRootState( stateName: string ): void {
-        this.changeState( stateName, {}, {}, true );
+        this.changeState( stateName, {}, {}, { root: true, noBack: true });
     }
 
+    /**
+     * 
+     * 
+     * @param {string} stateName
+     * 
+     * @memberOf TransitionService
+     */
+    public changeMenuState( stateName: string ) {
+        this.changeState( stateName, {}, {}, { noBack: false });
+    }
 
     /**
      * 
@@ -48,7 +58,20 @@ export class TransitionService {
      */
     public changeTab( stateName: string, direction: string ): void {
         let options = { type: 'slide', direction: direction };
-        this.changeState( stateName, {}, options, false, true );
+        this.changeState( stateName, {}, options, { root: false, tabs: true });
+    }
+
+    /**
+     * 
+     * 
+     * @memberOf TransitionService
+     */
+    public goBack() {
+        if ( this.$ionicNativeTransitions ) {
+            this.$ionicNativeTransitions.goBack();
+        } else {
+            this.$ionicHistory.goBack();
+        }
     }
 
     /**
@@ -57,37 +80,30 @@ export class TransitionService {
      * @param {string} stateName
      * @param {*} [routeParameters={}]
      * @param {*} [options={}]
-     * @param {boolean} [isRoot=false]
-     * @param {boolean} [isTabs=false]
-     * @param {boolean} [reload=false]
+     * @param {#} [serviceOptions={}]
      * 
      * @memberOf TransitionService
      */
-    public changeState( stateName: string, routeParameters: any = {}, options: any = {}, isRoot: boolean = false, isTabs: boolean = false, reload: boolean = false ): void {
+    public changeState( stateName: string, routeParameters: any = {}, options: any = {}, serviceOptions: any = {}): void {
         // this.$timeout(() => {
 
         if ( this.hasSideMenu ) {
             this.$mdSidenav( this.sideMenuId ).close();
-            this.executeTransition( stateName, routeParameters, options, isRoot, isTabs, reload );
+            this.executeTransition( stateName, routeParameters, options, serviceOptions );
         } else {
-            this.executeTransition( stateName, routeParameters, options, isRoot, isTabs, reload );
+            this.executeTransition( stateName, routeParameters, options, serviceOptions );
         }
 
         // }, ( this.$rootScope.isAndroid === false ? 300 : 0 ) );
     }
 
-    private executeTransition( stateName: string, routeParameters: any = {}, options: any = {}, isRoot: boolean = false, isTabs: boolean = false, reload: boolean = false ) {
+    private executeTransition( stateName: string, routeParameters: any = {}, options: any = {}, { root = false, tabs = false, reload = false, noBack = false } = {}) {
         let defaultOptions: any = { type: 'fade' };
         angular.extend( defaultOptions, options );
 
-        if ( isRoot ) {
-            this.$ionicHistory.nextViewOptions( {
-                disableBack: true,
-                historyRoot: true
-            });
-        }
+        this.$ionicHistory.nextViewOptions( { disableBack: noBack, historyRoot: root });
 
-        if ( isTabs ) {
+        if ( tabs ) {
             if ( this.$rootScope.isAndroid ) {
                 defaultOptions.fixedPixelsTop = 93;
             } else if ( this.$rootScope.isIOS ) {

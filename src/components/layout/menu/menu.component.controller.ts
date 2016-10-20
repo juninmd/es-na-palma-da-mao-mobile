@@ -129,11 +129,7 @@ export default class MenuController {
 
             } else {
                 // se existe uma view anterior, volta para ela
-                if ( this.$ionicNativeTransitions ) {
-                    this.$ionicNativeTransitions.goBack();
-                } else {
-                    this.$ionicHistory.goBack();
-                }
+                this.transitionService.goBack();
             }
 
         }, 100 );
@@ -212,7 +208,7 @@ export default class MenuController {
         if ( route.menuName === 'Situação CNH' ) {
             stateName = this.hasDriverLicense ? 'app.driverLicenseStatus' : 'app.driverLicense';
         }
-        this.transitionService.changeRootState( stateName );
+        this.transitionService.changeMenuState( stateName );
     }
 
     /**
