@@ -32,8 +32,8 @@
 									<span class="list-note-subheader">Início da Operação {{::dayGroup.beginDate}}</span>
 								</md-subheader>
 								<md-list-item>
-									<div class="md-padding wrap-hours" layout="row">
-										<span ng-repeat="hour in dayGroup.schedule track by $index" class="hour" ng-class="{ 'perdeu-busao': vm.beforeNow(hour) }">{{::hour}}</span>
+									<div class="wrap-hours" layout="row">
+										<div ng-repeat="hour in dayGroup.schedule track by $index" class="hour" ng-class="{ 'perdeu-busao': vm.beforeNow(hour) }">{{::hour}}</div>
 									</div>
 								</md-list-item>
 							</div>

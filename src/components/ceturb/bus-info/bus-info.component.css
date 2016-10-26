@@ -18,19 +18,14 @@
 
 
 #state-ceturb-bus-info .wrap-hours .hour {
-	 margin-left: 5px;
-	 margin-bottom: 2px;
-	 min-width: 51px;
+	 flex: 0 1 51px;
  }
 
 #state-ceturb-bus-info .wrap-hours {
 	-ms-flex-wrap: wrap;
 	    flex-wrap: wrap;
-    padding: 10px;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    margin-bottom: 15px;
+    padding: 10px 0;
+	justify-content: center;
 }
 
 #state-ceturb-bus-info .line-notes {
