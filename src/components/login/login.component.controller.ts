@@ -184,15 +184,14 @@ export class LoginController {
     }
 
     private openInAppBrowser( url: string ): void {
-        let platform = ionic.Platform.platform();
         let options = 'toolbar=no,location=no,clearcache=yes,clearsessioncache=yes,closebuttoncaption=Cancelar';
-
-        let browser = new InAppBrowser( url + '?espmplatform=' + platform, '_blank', options );
+        let browser = new InAppBrowser( url + '?espmplatform=' + ionic.Platform.platform(), '_blank', options );
 
         browser.on( 'loadstart' ).subscribe(( event: InAppBrowserEvent ) => {
             if ( event.url === 'https://acessocidadao.es.gov.br/' ) {
                 browser.close();
-            };
-        });
+            }
+        } );
+        browser.on( 'loaderror' ).subscribe(( event: InAppBrowserEvent ) => browser.close() );
     }
 }
