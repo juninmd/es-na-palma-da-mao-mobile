@@ -10,6 +10,7 @@ declare module 'angular' {
     interface IScope {
         isAndroid: boolean;
         isIOS: boolean;
+        $ionicGoBack: any;
     }
 }
 

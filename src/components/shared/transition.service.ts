@@ -45,7 +45,7 @@ export class TransitionService {
      * @memberOf TransitionService
      */
     public changeMenuState( stateName: string ) {
-        this.changeState( stateName, {}, {}, { noBack: false });
+        this.changeState( stateName, {}, { type: 'fade' }, { noBack: false });
     }
 
     /**
@@ -61,17 +61,8 @@ export class TransitionService {
         this.changeState( stateName, {}, options, { root: false, tabs: true });
     }
 
-    /**
-     * 
-     * 
-     * @memberOf TransitionService
-     */
     public goBack() {
-        if ( this.$ionicNativeTransitions ) {
-            this.$ionicNativeTransitions.goBack();
-        } else {
-            this.$ionicHistory.goBack();
-        }
+        this.$rootScope.$ionicGoBack();
     }
 
     /**
@@ -85,38 +76,32 @@ export class TransitionService {
      * @memberOf TransitionService
      */
     public changeState( stateName: string, routeParameters: any = {}, options: any = {}, serviceOptions: any = {}): void {
-        // this.$timeout(() => {
-
         if ( this.hasSideMenu ) {
             this.$mdSidenav( this.sideMenuId ).close();
             this.executeTransition( stateName, routeParameters, options, serviceOptions );
         } else {
             this.executeTransition( stateName, routeParameters, options, serviceOptions );
         }
-
-        // }, ( this.$rootScope.isAndroid === false ? 300 : 0 ) );
     }
 
     private executeTransition( stateName: string, routeParameters: any = {}, options: any = {}, { root = false, tabs = false, reload = false, noBack = false } = {}) {
-        let defaultOptions: any = { type: 'fade' };
-        angular.extend( defaultOptions, options );
+        let allOptions: any = {};
+        angular.extend( allOptions, options );
 
         this.$ionicHistory.nextViewOptions( { disableBack: noBack, historyRoot: root });
 
         if ( tabs ) {
             if ( this.$rootScope.isAndroid ) {
-                defaultOptions.fixedPixelsTop = 93;
+                allOptions.fixedPixelsTop = 93;
             } else if ( this.$rootScope.isIOS ) {
-                defaultOptions.fixedPixelsBottom = 48;
+                allOptions.fixedPixelsBottom = 48;
             }
         }
 
-        if ( this.$ionicNativeTransitions ) {
-            this.$ionicNativeTransitions.stateGo( stateName, routeParameters, { reload: reload }, defaultOptions );
+        if ( angular.equals(allOptions, {}) ) {
+            this.$state.go( stateName, routeParameters, { reload: reload } );
         } else {
-            if ( this.$ionicHistory.currentStateName() !== stateName ) {
-                this.$state.go( stateName, routeParameters );
-            }
+            this.$ionicNativeTransitions.stateGo( stateName, routeParameters, { reload: reload }, allOptions );
         }
     }
 
