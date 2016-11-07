@@ -1,5 +1,5 @@
 export interface NonFatal {
-    message: string;
+    message: string | undefined;
     stringData?: any;
     booleanData?: any;
     numberData?: any;
