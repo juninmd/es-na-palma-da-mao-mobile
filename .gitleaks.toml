@@ -1,0 +1,69 @@
+[[allowlist]]
+description = "False positive: generic-api-key in src/components/shared/settings.ts"
+rules = ["generic-api-key"]
+paths = ["src/components/shared/settings.ts"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in src/components/shared/settings.ts"
+rules = ["generic-api-key"]
+paths = ["src/components/shared/settings.ts"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in src/components/shared/settings.js"
+rules = ["generic-api-key"]
+paths = ["src/components/shared/settings.js"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in src/components/shared/settings.js"
+rules = ["generic-api-key"]
+paths = ["src/components/shared/settings.js"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in src/client/components/providers/oAuthDigits.js"
+rules = ["generic-api-key"]
+paths = ["src/client/components/providers/oAuthDigits.js"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in src/client/components/providers/oAuthDigits.js"
+rules = ["generic-api-key"]
+paths = ["src/client/components/providers/oAuthDigits.js"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in .vs/config/applicationhost.config"
+rules = ["generic-api-key"]
+paths = [".vs/config/applicationhost.config"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in .vs/config/applicationhost.config"
+rules = ["generic-api-key"]
+paths = [".vs/config/applicationhost.config"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in .vs/config/applicationhost.config"
+rules = ["generic-api-key"]
+paths = [".vs/config/applicationhost.config"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in .vs/config/applicationhost.config"
+rules = ["generic-api-key"]
+paths = [".vs/config/applicationhost.config"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in .vs/config/applicationhost.config"
+rules = ["generic-api-key"]
+paths = [".vs/config/applicationhost.config"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in .vs/config/applicationhost.config"
+rules = ["generic-api-key"]
+paths = [".vs/config/applicationhost.config"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in .vs/config/applicationhost.config"
+rules = ["generic-api-key"]
+paths = [".vs/config/applicationhost.config"]
+
+[[allowlist]]
+description = "False positive: generic-api-key in .vs/config/applicationhost.config"
+rules = ["generic-api-key"]
+paths = [".vs/config/applicationhost.config"]
